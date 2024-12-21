@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Santa Rally Ho ho HODL - The most festive memecoin on Solana! Join the rally and bring holiday cheer to the crypto space.">
+  <title>Santa Rally Ho ho HODL</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #242e38;
+      color: white;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    header {
+      text-align: center;
+      padding: 50px 20px;
+      background: linear-gradient(to bottom, #4fa7ea, #242e38);
+    }
+    header img {
+      max-width: 150px;
+      border-radius: 50%;
+    }
+    header h1 {
+      font-size: 3em;
+      margin: 20px 0;
+    }
+    header p {
+      color: #768490;
+      font-size: 1.2em;
+      margin: 10px 0 30px;
+    }
+    .cta {
+      margin: 30px 0;
+    }
+    .cta a {
+      text-decoration: none;
+      background-color: #4fa7ea;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 5px;
+      font-size: 1.2em;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .cta a:hover {
+      background-color: #3c8dc5;
+    }
+    .container {
+      padding: 20px 40px;
+    }
+    .section {
+      margin: 40px 0;
+    }
+    .section h2 {
+      font-size: 2.2em;
+      margin-bottom: 20px;
+      color: white;
+    }
+    .section p {
+      color: #768490;
+      font-size: 1.1em;
+    }
+    .icon {
+      font-size: 1.5em;
+      margin-right: 10px;
+      color: #4fa7ea;
+    }
+    .tokenomics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-around;
+      text-align: center;
+    }
+    .tokenomics div {
+      background-color: #34404d;
+      padding: 20px;
+      border-radius: 10px;
+      flex: 1;
+      max-width: 200px;
+    }
+    .tokenomics div h3 {
+      color: white;
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+    .roadmap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: space-around;
+      padding-top: 20px;
+    }
+    .roadmap div {
+      flex: 1;
+      max-width: 300px;
+      padding: 20px;
+      background-color: #34404d;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .roadmap div h3 {
+      color: white;
+      margin-bottom: 10px;
+      font-size: 1.5em;
+    }
+    .social-links {
+      margin: 40px 0;
+      text-align: center;
+    }
+    .social-links a {
+      color: #4fa7ea;
+      font-size: 1.2em;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    .footer {
+      margin-top: 50px;
+      text-align: center;
+      color: #768490;
+      font-size: 0.9em;
+      padding: 20px;
+      background-color: #1c252e;
+    }
+    .footer a {
+      color: #4fa7ea;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Snow animation */
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      width: 10px;
+      height: 10px;
+      background: white;
+      border-radius: 50%;
+      animation: fall linear infinite;
+      z-index: 9999;
+      opacity: 0.8;
+    }
+    @keyframes fall {
+      0% {
+        transform: translateY(0) translateX(0);
+      }
+      100% {
+        transform: translateY(100vh) translateX(calc(50vw - 50%));
+      }
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background-color: #34404d;
+      padding: 30px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 600px;
+      text-align: center;
+    }
+    .modal-content a {
+      display: inline-block;
+      background-color: #4fa7ea;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 5px;
+      font-size: 1.2em;
+      font-weight: bold;
+      margin: 10px;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+    .modal-content a:hover {
+      background-color: #3c8dc5;
+    }
+    .close-btn {
+      color: white;
+      font-size: 2em;
+      cursor: pointer;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Snow animation container -->
+  <div id="snow-container"></div>
+
+  <!-- Main Content -->
+  <header>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcgSoWgdfidmoJk2VtXSAFzh2DgR9JAzZBfSNW53lkWDN4vyNEburVnULp&s=10" alt="Santa Rally Logo">
+    <h1>Santa Rally Ho ho HODL</h1>
+    <p>The most festive memecoin on Solana! Join the rally and bring holiday cheer to the crypto space.</p>
+    <div class="cta">
+      <a href="#" id="join-rally">Join the Rally</a>
+    </div>
+  </header>
+  <div class="container">
+    <section class="section about">
+      <h2><i class="fas fa-info-circle icon"></i>About Santa Rally Ho ho HODL</h2>
+      <p>Santa Rally Ho ho HODL is a memecoin built on the Solana blockchain, inspired by the holiday spirit and the legendary year-end market rallies. Fast, secure, and festive—our token is here to spread joy and rewards to the crypto community.</p>
+    </section>
+    <section class="section how-it-works">
+      <h2><i class="fas fa-cogs icon"></i>How It Works</h2>
+      <p>Buy, HODL, and watch the rally unfold! Powered by Solana's blazing speed and low fees, Santa Rally is designed to make your holiday season unforgettable. Every transaction brings you closer to festive rewards!</p>
+    </section>
+    <section class="section tokenomics">
+      <h2><i class="fas fa-coins icon"></i>Tokenomics</h2>
+      <div class="tokenomics">
+        <div>
+          <h3>Total Supply</h3>
+          <p>1,000,000,000 SANTA</p>
+        </div>
+        <div>
+          <h3>Liquidity</h3>
+          <p>50%</p>
+        </div>
+        <div>
+          <h3>Marketing</h3>
+          <p>20%</p>
+        </div>
+        <div>
+          <h3>Rewards</h3>
+          <p>20%</p>
+        </div>
+        <div>
+          <h3>Development</h3>
+          <p>10%</p>
+        </div>
+      </div>
+    </section>
+    <section class="section roadmap">
+      <h2><i class="fas fa-road icon"></i>Roadmap</h2>
+      <div class="roadmap">
+        <div>
+          <h3>Phase 1</h3>
+          <p>Launch on Solana</p>
+        </div>
+        <div>
+          <h3>Phase 2</h3>
+          <p>Community Building</p>
+        </div>
+        <div>
+          <h3>Phase 3</h3>
+          <p>Exchange Listings</p>
+        </div>
+        <div>
+          <h3>Phase 4</h3>
+          <p>Holiday Airdrops</p>
+        </div>
+      </div>
+    </section>
+    <section class="social-links">
+      <h2><i class="fas fa-share-alt icon"></i>Stay Connected</h2>
+      <a href="https://t.me/sntrhhdl" target="_blank">Telegram</a> |
+      <a href="https://x.com/sntrhhdl" target="_blank">X</a> |
+      <a href="https://santarallyhhdl.com" target="_blank">Website</a>
+    </section>
+  </div>
+
+  <!-- Modal (Hidden by default) -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <a href="https://dexscreener.com/SANTAR" target="_blank">Dexscreener</a>
+      <a href="https://pumpfun.fun/SANTAR" target="_blank">Pump.fun</a>
+      <a href="#" onclick="navigator.clipboard.writeText('4mDpYBSB5gyUz4cq9eeaRpymYZuYh5pqfYfHjj2bpump')">Copy CA</a>
+    </div>
+  </div>
+
+ <footer class="footer">
+      <p>© 2024 Santa Rally. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // Snowflake animation
+      for (let i = 0; i < 50; i++) {
+        const snowflake = document.createElement("div");
+        snowflake.classList.add("snowflake");
+        snowflake.style.left = `${Math.random() * 100}vw`;
+        snowflake.style.animationDuration = `${Math.random() * 5 + 5}s`; // randomize fall speed
+        snowflake.style.animationDelay = `${Math.random() * 5}s`; // randomize delay
+        document.getElementById("snow-container").appendChild(snowflake);
+      }
+
+      // Modal functionality
+      const modal = document.getElementById("myModal");
+      const btn = document.getElementById("join-rally");
+      const closeBtn = document.getElementsByClassName("close-btn")[0];
+
+      // When the user clicks the button, open the modal
+      btn.onclick = function() {
+        modal.style.display = "flex";
+      }
+
+      // When the user clicks on <span> (x), close the modal
+      closeBtn.onclick = function() {
+        modal.style.display = "none";
+      }
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>
